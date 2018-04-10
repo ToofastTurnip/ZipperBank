@@ -21,16 +21,16 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
-    public Account findStudentById(int id) {
+    public Account findAccountById(int id) {
         return accountRepository.findOne(id);
     }
 
-    public Account updateStudentById(Long id, Account account) {
+    public Account updateAccountById(Long id, Account account) {
         account.setId(id);
         return accountRepository.save(account);
     }
 
-    public void deleteStudentById(int id) {
+    public void deleteAccountById(int id) {
         accountRepository.delete(id);
     }
 
