@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
@@ -22,8 +24,14 @@ public class AccountController {
         this.accountService = accountService;
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Collection<Account>> getPerson() {
+        Collection<Account> accounts = accountService.findAllStudents();
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Account> createPerson(@RequestBody Account account) {
+    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
         Account savedAccount = accountService.createAccount(account);
         return new ResponseEntity<>(savedAccount, HttpStatus.CREATED);
     }
