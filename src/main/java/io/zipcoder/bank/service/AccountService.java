@@ -21,21 +21,26 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
+
+    public Collection<Account> findAllAccounts() {
+        return (Collection<Account>) accountRepository.findAll();
+
     public Collection<Account> findAllStudents() {
 
         return accountRepository.findAll();
+
     }
 
-    public Account findAccountById(int id) {
+    public Account findAccountById(Integer id) {
         return accountRepository.findOne(id);
     }
 
-    public Account updateAccountById(Long id, Account account) {
+    public Account updateAccountById(Integer id, Account account) {
         account.setId(id);
         return accountRepository.save(account);
     }
 
-    public void deleteAccountById(int id) {
+    public void deleteAccountById(Integer id) {
         accountRepository.delete(id);
     }
 

@@ -8,12 +8,12 @@ import javax.persistence.*;
 @Entity
 public class Account extends BaseEntity {
 
-    private static final Long serialVersionUID = 12345L;
+    private static final Integer serialVersionUID = 12345;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     // Put the account type here when we decide to store it as a string or enum
 
@@ -31,11 +31,11 @@ public class Account extends BaseEntity {
 //    @Column(name = "CUSTOMER")
 //    private Customer customer;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

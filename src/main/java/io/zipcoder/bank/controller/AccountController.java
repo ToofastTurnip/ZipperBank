@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/api/accounts")
 public class AccountController {
 
     private AccountService accountService;
@@ -23,13 +23,13 @@ public class AccountController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Collection<Account>> getPerson() {
-        Collection<Account> accounts = accountService.findAllStudents();
+    public ResponseEntity<Collection<Account>> getAccount() {
+        Collection<Account> accounts = accountService.findAllAccounts();
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Account> findAccountById(@PathVariable("id") int id) {
+    public ResponseEntity<Account> findAccountById(@PathVariable("id") Integer id) {
         Account account = accountService.findAccountById(id);
         return new ResponseEntity<>(account, HttpStatus.OK);
     }
@@ -41,13 +41,13 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Account> updateStudentById(@RequestBody Account account, @PathVariable("id") Long id) {
+    public ResponseEntity<Account> updateAccountById(@RequestBody Account account, @PathVariable("id") Integer id) {
         Account returnAccount = accountService.updateAccountById(id, account);
         return new ResponseEntity<>(returnAccount, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteAccountById(@PathVariable("id") int id) {
+    public ResponseEntity<?> deleteAccountById(@PathVariable("id") Integer id) {
         accountService.deleteAccountById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
