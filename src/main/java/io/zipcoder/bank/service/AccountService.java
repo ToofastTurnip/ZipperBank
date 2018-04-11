@@ -17,20 +17,20 @@ public class AccountService {
 
     public Account createAccount(Account account) {return accountRepository.save(account);}
 
-    public Collection<Account> findAllStudents() {
+    public Collection<Account> findAllAccounts() {
         return accountRepository.findAll();
     }
 
-    public Account findAccountById(int id) {
+    public Account findAccountById(Integer id) {
         return accountRepository.findOne(id);
     }
 
-    public Account updateAccountById(Long id, Account account) {
+    public Account updateAccountById(Integer id, Account account) {
         account.setId(id);
         return accountRepository.save(account);
     }
 
-    public void deleteAccountById(int id) {
+    public void deleteAccountById(Integer id) {
         accountRepository.delete(id);
     }
 
