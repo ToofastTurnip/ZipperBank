@@ -12,8 +12,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import util.BaseServiceTest;
 
-import java.util.List;
-
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)

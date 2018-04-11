@@ -18,7 +18,7 @@ public class AccountService {
     public Account createAccount(Account account) {return accountRepository.save(account);}
 
     public Collection<Account> findAllAccounts() {
-        return accountRepository.findAll();
+        return (Collection<Account>) accountRepository.findAll();
     }
 
     public Account findAccountById(Integer id) {

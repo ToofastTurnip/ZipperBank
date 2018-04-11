@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/api/accounts")
 public class AccountController {
 
     private AccountService accountService;
@@ -22,7 +22,7 @@ public class AccountController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Collection<Account>> getPerson() {
+    public ResponseEntity<Collection<Account>> getAccount() {
         Collection<Account> accounts = accountService.findAllAccounts();
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
@@ -40,7 +40,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Account> updateStudentById(@RequestBody Account account, @PathVariable("id") Integer id) {
+    public ResponseEntity<Account> updateAccountById(@RequestBody Account account, @PathVariable("id") Integer id) {
         Account returnAccount = accountService.updateAccountById(id, account);
         return new ResponseEntity<>(returnAccount, HttpStatus.OK);
     }
