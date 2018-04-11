@@ -13,12 +13,22 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     @Autowired
-    public AccountService(AccountRepository accountRepository) {this.accountRepository = accountRepository;}
+    public AccountService(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
-    public Account createAccount(Account account) {return accountRepository.save(account);}
+    public Account createAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
 
     public Collection<Account> findAllAccounts() {
         return (Collection<Account>) accountRepository.findAll();
+
+    public Collection<Account> findAllStudents() {
+
+        return accountRepository.findAll();
+
     }
 
     public Account findAccountById(Integer id) {
