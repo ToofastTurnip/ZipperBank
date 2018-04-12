@@ -1,6 +1,5 @@
 package io.zipcoder.service;
 
-import io.zipcoder.bank.model.Account;
 import io.zipcoder.bank.model.Customer;
 import io.zipcoder.bank.repository.CustomerRepository;
 import io.zipcoder.bank.service.CustomerService;
