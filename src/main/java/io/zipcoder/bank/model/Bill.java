@@ -38,7 +38,7 @@ public class Bill {
     private Double payment_amount;
 
     @Column(name = "ACCOUNT_ID")
-    private Long account_id;
+    private Integer account_id;
 
     public Integer getId() {
         return Id;
@@ -112,11 +112,11 @@ public class Bill {
         this.payment_amount = payment_amount;
     }
 
-    public Long getAccount_id() {
+    public Integer getAccount_id() {
         return account_id;
     }
 
-    public void setAccount_id(Long account_id) {
+    public void setAccount_id(Integer account_id) {
         this.account_id = account_id;
     }
 }

@@ -17,7 +17,7 @@ public class Customer {
     @Column(name = "LAST_NAME")
     private String last_name;
 
-    private Set<Address> address;
+    private Address address;
 
 
     public Integer getId() {
@@ -44,11 +44,11 @@ public class Customer {
         this.last_name = last_name;
     }
 
-    public Set<Address> getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Set<Address> address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
