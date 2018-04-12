@@ -40,7 +40,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Customer> updateAccountById(@RequestBody Customer account, @PathVariable("id") Integer id) {
-        Customer returnAccount = customerService.updateAccountById(id, account);
+        Customer returnAccount = customerService.updateCustomerById(id, account);
         return new ResponseEntity<>(returnAccount, HttpStatus.OK);
     }
 

@@ -1,8 +1,9 @@
 package io.zipcoder.service;
 
 import io.zipcoder.bank.model.Account;
-import io.zipcoder.bank.repository.AccountRepository;
-import io.zipcoder.bank.service.AccountService;
+import io.zipcoder.bank.model.Customer;
+import io.zipcoder.bank.repository.CustomerRepository;
+import io.zipcoder.bank.service.CustomerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,49 +16,49 @@ import util.BaseServiceTest;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AccountServiceTest extends BaseServiceTest<Account> {
+public class CustomerServiceTest extends BaseServiceTest<Customer> {
 
     @Mock
-    private static AccountRepository accountRepository;
+    private static CustomerRepository customerRepository;
 
     @InjectMocks
-    private static AccountService accountService = new AccountService(accountRepository);
+    private static CustomerService customerService = new CustomerService(customerRepository);
 
     @Before
     public void init() {
-        entity = new Account();
+        entity = new Customer();
         initDependentVariables();
     }
 
     @Test
-    public void testCreateAccount() {
-        when(accountRepository.save(entity))
+    public void testCreateCustomer() {
+        when(customerRepository.save(entity))
                 .thenReturn(entity);
-        returnedEntity = accountService.createAccount(entity);
+        returnedEntity = customerService.createCustomer(entity);
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
     }
 
     @Test
-    public void testFindAllAccounts() {
-        when(accountRepository.findAll())
+    public void testFindAllCustomers() {
+        when(customerRepository.findAll())
                 .thenReturn(entityCollection);
-        returnedEntityCollection = accountService.findAllAccounts();
+        returnedEntityCollection = customerService.findAllCustomers();
         Assert.assertEquals(entityNotReturnedMessage, entityCollection, returnedEntityCollection);
     }
 
     @Test
-    public void testFindAccountById() {
-        when(accountRepository.findOne(entityId))
+    public void testFindCustomerById() {
+        when(customerRepository.findOne(entityId))
                 .thenReturn(entity);
-        returnedEntity = accountService.findAccountById(entityId);
+        returnedEntity = customerService.findCustomerById(entityId);
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
     }
 
     @Test
-    public void testUpdateAccountById() {
-        when(accountRepository.save(entity))
+    public void testUpdateStudentById() {
+        when(customerRepository.save(entity))
                 .thenReturn(entity);
-        returnedEntity = accountService.updateAccountById(entityId, entity);
+        returnedEntity = customerService.updateCustomerById(entityId, entity);
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
     }
 
