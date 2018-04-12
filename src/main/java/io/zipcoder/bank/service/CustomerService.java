@@ -31,7 +31,7 @@ public class CustomerService {
         return customerRepository.findOne(id);
     }
 
-    public Customer updateAccountById(Integer id, Customer customer) {
+    public Customer updateCustomerById(Integer id, Customer customer) {
         customer.setId(id);
         return customerRepository.save(customer);
     }

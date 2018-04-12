@@ -54,7 +54,7 @@ public class AccountServiceTest extends BaseServiceTest<Account> {
     }
 
     @Test
-    public void testUpdateStudentById() {
+    public void testUpdateAccountById() {
         when(accountRepository.save(entity))
                 .thenReturn(entity);
         returnedEntity = accountService.updateAccountById(entityId, entity);
