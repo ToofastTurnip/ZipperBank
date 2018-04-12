@@ -28,8 +28,20 @@ public class BillController {
 
     @RequestMapping(value = "/bills/{billId}", method = RequestMethod.GET)
     public ResponseEntity<Bill> findBillById(@PathVariable("billId") Integer id) {
-        Bill bill = billService.findBillById(id);
+        Bill bill = billService.findBillByBillId(id);
         return new ResponseEntity<>(bill, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Bill> updateAccountById(@RequestBody Bill bill, @PathVariable("id") Integer id) {
+        Bill returnBill = billService.updateBillByBillId(id, bill);
+        return new ResponseEntity<>(returnBill, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteBillById(@PathVariable("id") Integer id) {
+        billService.deleteBillByBillId(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
