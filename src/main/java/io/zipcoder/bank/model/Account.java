@@ -1,5 +1,6 @@
 package io.zipcoder.bank.model;
 
+import io.zipcoder.bank.enums.Type;
 import io.zipcoder.core.model.BaseEntity;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -15,7 +16,8 @@ public class Account extends BaseEntity {
     @Column(name = "ID")
     private Integer id;
 
-    // Put the account type here when we decide to store it as a string or enum
+//    @Column(name = "TYPE")
+//    private Type type;
 
     @NotEmpty
     @Column(name = "NICKNAME")
@@ -27,9 +29,12 @@ public class Account extends BaseEntity {
     @Column(name = "BALANCE")
     private Double balance;
 
-    // Noted out for now until we make the customer class
 //    @Column(name = "CUSTOMER")
 //    private Customer customer;
+
+    public Account(){
+
+    }
 
     public Integer getId() {
         return id;
@@ -62,4 +67,20 @@ public class Account extends BaseEntity {
     public void setBalance(Double balance) {
         this.balance = balance;
     }
+
+//    public String getType() {
+//        return type.getValue();
+//    }
+//
+//    public void setType(Type type) {
+//        this.type = type;
+//    }
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 }

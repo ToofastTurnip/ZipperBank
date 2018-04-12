@@ -39,6 +39,7 @@ public class AccountControllerTest extends BaseControllerTest<Account> {
         when(accountService.createAccount(entity))
                 .thenReturn(entity);
         mvcPerformPostWithNoPathVariables(baseEndpointUrl, entityAsJsonString);
+        System.out.println(entityAsJsonString);
     }
 
     @Test
@@ -47,6 +48,7 @@ public class AccountControllerTest extends BaseControllerTest<Account> {
                 .thenReturn(entityCollection);
         returnedEntity = mvcPerformGetWithNoPathVariables(baseEndpointUrl);
         Assert.assertEquals(entityNotReturnedMessage, entityCollectionAsJsonString, returnedEntity);
+        System.out.println(returnedEntity);
     }
 
     @Test

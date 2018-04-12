@@ -24,12 +24,13 @@ public class AccountService {
 
     public Collection<Account> findAllAccounts() {
         return (Collection<Account>) accountRepository.findAll();
-
-    public Collection<Account> findAllStudents() {
-
-        return accountRepository.findAll();
-
     }
+
+//    public Collection<Account> findAllStudents() {
+//
+//        return accountRepository.findAll();
+//
+//    }
 
     public Account findAccountById(Integer id) {
         return accountRepository.findOne(id);
