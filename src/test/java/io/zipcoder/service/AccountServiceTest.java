@@ -61,4 +61,9 @@ public class AccountServiceTest extends BaseServiceTest<Account> {
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
     }
 
+    @Test
+    public void testDeleteAccountById() {
+        // Betta be able to delete dat account boi
+    }
+
 }

@@ -11,10 +11,12 @@ import java.util.Collection;
 public class BillService {
 
     private BillRepository billRepository;
+    private AccountService accountService;
 
     @Autowired
-    public BillService(BillRepository billRepository) {
+    public BillService(BillRepository billRepository, AccountService accountService) {
         this.billRepository = billRepository;
+        this.accountService = accountService;
     }
 
     public Bill createBill(Bill bill) {
@@ -30,17 +32,29 @@ public class BillService {
         return billRepository.save(bill);
     }
 
+    public Collection<Bill> findAllBills() {
+        return (Collection<Bill>) billRepository.findAll();
+    }
+
     public void deleteBillByBillId(Integer id) {
         billRepository.delete(id);
     }
-//    public Collection<Bill> findAllBillsByAccount(Integer id) {
-//        Collection collection = new ArrayList();
-//        Account account = new Account();
-//
-//        billRepository.findAll();
-//        collection.add()
-//        return collection;
-//  }
+
+    public Collection<Bill> findAllBillsByAccount(Integer id) {
+        Collection collection = new ArrayList();
+        ArrayList<Account> accounts = (ArrayList<Account>) accountService.findAllAccounts();
+        ArrayList<Bill> bills = (ArrayList<Bill>) this.findAllBills();
+        for (Account account : accounts) {
+            if (id.equals(account.getId())) {
+                for (Bill bill : bills) {
+                    if (bill.getAccount_id().equals(id)) {
+                        collection.add(bill);
+                    }
+                }
+            }
+        }
+        return collection;
+    }
 
 
 
