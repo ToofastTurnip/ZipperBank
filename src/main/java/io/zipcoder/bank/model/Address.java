@@ -10,7 +10,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     @Column(name = "STREET_NUMBER")
     private String street_number;
@@ -28,11 +28,11 @@ public class Address {
     private String zip;
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
