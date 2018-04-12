@@ -41,9 +41,8 @@ public class CustomerController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Customer> updateAccountById(@RequestBody Customer customer, @PathVariable("id") Integer id) {
-        Customer returnCustomer = customerService.updateAccountById(id, customer);
+        Customer returnCustomer = customerService.updateCustomerById(id, customer);
         return new ResponseEntity<>(returnCustomer, HttpStatus.OK);
-
     }
 
     //Need Get customer that owns the specified account
