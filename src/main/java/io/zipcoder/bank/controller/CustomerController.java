@@ -16,32 +16,34 @@ public class CustomerController {
 
     private CustomerService customerService;
 
+    @Autowired
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Collection<Customer>> getAccount() {
-        Collection<Customer> accounts = customerService.findAllCustomers();
-        return new ResponseEntity<>(accounts, HttpStatus.OK);
+        Collection<Customer> customers = customerService.findAllCustomers();
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Customer> findAccountById(@PathVariable("id") Integer id) {
-        Customer account = customerService.findCustomerById(id);
-        return new ResponseEntity<>(account, HttpStatus.OK);
+        Customer customer = customerService.findCustomerById(id);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Customer> createAccount(@RequestBody Customer account) {
-        Customer savedAccount = customerService.createCustomer(account);
-        return new ResponseEntity<>(savedAccount, HttpStatus.CREATED);
+    public ResponseEntity<Customer> createAccount(@RequestBody Customer customer) {
+        Customer savedCustomer = customerService.createCustomer(customer);
+        return new ResponseEntity<>(savedCustomer, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Customer> updateAccountById(@RequestBody Customer account, @PathVariable("id") Integer id) {
-        Customer returnAccount = customerService.updateCustomerById(id, account);
-        return new ResponseEntity<>(returnAccount, HttpStatus.OK);
+    public ResponseEntity<Customer> updateAccountById(@RequestBody Customer customer, @PathVariable("id") Integer id) {
+        Customer returnCustomer = customerService.updateAccountById(id, customer);
+        return new ResponseEntity<>(returnCustomer, HttpStatus.OK);
+
     }
 
     //Need Get customer that owns the specified account

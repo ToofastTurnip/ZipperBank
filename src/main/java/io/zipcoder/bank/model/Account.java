@@ -36,6 +36,13 @@ public class Account extends BaseEntity {
 
     }
 
+    public Account(Integer id, String nickname, Integer rewards, Double balance) {
+        this.id = id;
+        this.nickname = nickname;
+        this.rewards = rewards;
+        this.balance = balance;
+    }
+
     public Integer getId() {
         return id;
     }

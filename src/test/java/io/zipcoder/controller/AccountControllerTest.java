@@ -30,7 +30,7 @@ public class AccountControllerTest extends BaseControllerTest<Account> {
         MockitoAnnotations.initMocks(this);
         mvc = MockMvcBuilders.standaloneSetup(accountController).build();
         baseEndpointUrl = "/api/accounts";
-        entity = new Account();
+        entity = new Account(3,"Joey", 4, 3.0);
         initDependentVariables();
     }
 
