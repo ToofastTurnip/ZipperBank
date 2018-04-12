@@ -16,8 +16,8 @@ public class Account extends BaseEntity {
     @Column(name = "ID")
     private Integer id;
 
-//    @Column(name = "TYPE")
-//    private Type type;
+    @Column(name = "TYPE")
+    private Type type;
 
     @NotEmpty
     @Column(name = "NICKNAME")
@@ -29,8 +29,8 @@ public class Account extends BaseEntity {
     @Column(name = "BALANCE")
     private Double balance;
 
-//    @Column(name = "CUSTOMER")
-//    private Customer customer;
+    @Column(name = "CUSTOMER")
+    private Customer customer;
 
     public Account(){
 
@@ -68,19 +68,20 @@ public class Account extends BaseEntity {
         this.balance = balance;
     }
 
-//    public String getType() {
-//        return type.getValue();
-//    }
-//
-//    public void setType(Type type) {
-//        this.type = type;
-//    }
-//
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    public String getType() {
+        return type.getValue();
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
 }

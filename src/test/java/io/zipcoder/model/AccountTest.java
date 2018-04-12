@@ -1,6 +1,8 @@
 package io.zipcoder.model;
 
+import io.zipcoder.bank.enums.Type;
 import io.zipcoder.bank.model.Account;
+import io.zipcoder.bank.model.Customer;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,6 +40,20 @@ public class AccountTest {
         Assert.assertEquals(expected, account.getBalance());
     }
 
-    // More tests for the noted out methods
+    @Test
+    public void accountTypeTest() {
+        Account account = new Account();
+        account.setType(Type.CHECKING);
+        String expected = Type.CHECKING.getValue();
+        Assert.assertEquals(expected, account.getType());
+    }
+
+    @Test
+    public void accountCustomerTest() {
+        Account account = new Account();
+        account.setCustomer(new Customer());
+        Customer expected = new Customer();
+        Assert.assertEquals(expected.getClass(), account.getCustomer().getClass());
+    }
 
 }
