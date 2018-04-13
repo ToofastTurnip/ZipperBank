@@ -25,7 +25,7 @@ public class Deposit {
     private Status status;
 
     @Column(name = "PAYEE_ID")
-    private Long payee_id;
+    private Integer payee_id;
 
     @Column(name = "MEDIUM")
     private Medium medium;
@@ -60,24 +60,24 @@ public class Deposit {
         this.transaction_date = transaction_date;
     }
 
-    public String getStatus() {
-        return status.getValue();
+    public Status getStatus() {
+        return this.status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
     }
 
-    public Long getPayee_id() {
+    public Integer getPayee_id() {
         return payee_id;
     }
 
-    public void setPayee_id(Long payee_id) {
+    public void setPayee_id(Integer payee_id) {
         this.payee_id = payee_id;
     }
 
-    public String getMedium() {
-        return medium.getValue();
+    public Medium getMedium() {
+        return this.medium;
     }
 
     public void setMedium(Medium medium) {

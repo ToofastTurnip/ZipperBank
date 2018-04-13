@@ -45,7 +45,6 @@ public class BillService {
         billRepository.delete(id);
     }
 
-
     public Collection<Bill> findAllBillsByAccount(Integer id) {
         Collection collection = new ArrayList();
         ArrayList<Account> accounts = (ArrayList<Account>) accountService.findAllAccounts();

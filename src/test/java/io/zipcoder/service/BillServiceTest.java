@@ -49,39 +49,6 @@ public class BillServiceTest extends BaseServiceTest<Bill> {
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
     }
 
-//    @Mock
-//    private static BillRepository billRepository;
-//
-//    @InjectMocks
-//    private static BillService billService = new BillService(billRepository);
-//
-//    @Before
-//    public void init() {
-//        entity = new Bill();
-//        initDependentVariables();
-//    }
-//
-//    @Test
-//    public void testCreateBill() {
-//        when(billRepository.save(entity))
-//                .thenReturn(entity);
-//        returnedEntity = billService.createBill(entity);
-//        Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
-//    }
-//
-//    @Test
-//    public void testFindAccountById() {
-//        when(billRepository.findOne(entityId))
-//                .thenReturn(entity);
-//        returnedEntity = billService.findBillByBillId(entityId);
-//        Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
-//    }
-
-//
-//    // More tests coming when BillService() is done
-
-
-
     @Test
     public void testUpdateBillByBillId() {
         when(billRepository.save(entity))
