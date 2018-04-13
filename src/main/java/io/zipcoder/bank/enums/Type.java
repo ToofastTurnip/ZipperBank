@@ -2,21 +2,31 @@ package io.zipcoder.bank.enums;
 
 public enum Type {
 
-    SAVINGS("SAVINGS"),
-    CHECKING("CHECKING"),
-    CREDIT("CREDIT");
+//    SAVINGS("SAVINGS"),
+//    CHECKING("CHECKING"),
+//    CREDIT("CREDIT"),
+//    P2P("P2P"),
+//    DEPOSIT("DEPOSIT"),
+//    WITHDRAWAL("WITHDRAWAL");
 
-    private String value;
+    SAVINGS,
+    CHECKING,
+    CREDIT,
+    P2P,
+    DEPOSIT,
+    WITHDRAWAL;
 
-    Type(String value) {
-        this.value = value;
-    }
+    //private String value;
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
+//    Type(String value) {
+//        this.value = value;
+//    }
+//
+//    public String getValue() {
+//        return value;
+//    }
+//
+//    public void setValue(String value) {
+//        this.value = value;
+//    }
 }

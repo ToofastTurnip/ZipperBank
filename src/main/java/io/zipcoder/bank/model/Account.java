@@ -16,7 +16,9 @@ public class Account extends BaseEntity {
     @Column(name = "ID")
     private Integer id;
 
+
     @Column(name = "TYPE")
+    @Enumerated(value = EnumType.STRING)
     private Type type;
 
     @NotEmpty
@@ -75,8 +77,8 @@ public class Account extends BaseEntity {
         this.balance = balance;
     }
 
-    public String getType() {
-        return type.getValue();
+    public Type getType() {
+        return type;
     }
 
     public void setType(Type type) {

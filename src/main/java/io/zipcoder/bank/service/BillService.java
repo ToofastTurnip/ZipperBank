@@ -2,8 +2,10 @@ package io.zipcoder.bank.service;
 
 import io.zipcoder.bank.model.Account;
 import io.zipcoder.bank.model.Bill;
+import io.zipcoder.bank.repository.AccountRepository;
 import io.zipcoder.bank.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,10 +13,12 @@ import java.util.Collection;
 public class BillService {
 
     private BillRepository billRepository;
+    private AccountService accountService;
 
     @Autowired
-    public BillService(BillRepository billRepository) {
+    public BillService(BillRepository billRepository, AccountService accountService) {
         this.billRepository = billRepository;
+        this.accountService = accountService;
     }
 
     public Bill createBill(Bill bill) {
@@ -33,16 +37,5 @@ public class BillService {
     public void deleteBillByBillId(Integer id) {
         billRepository.delete(id);
     }
-//    public Collection<Bill> findAllBillsByAccount(Integer id) {
-//        Collection collection = new ArrayList();
-//        Account account = new Account();
-//
-//        billRepository.findAll();
-//        collection.add()
-//        return collection;
-//  }
-
-
-
 
 }
