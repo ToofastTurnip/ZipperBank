@@ -44,7 +44,7 @@ public class BillServiceTest extends BaseServiceTest<Bill> {
 //        returnedEntity = billService.findBillByBillId(entityId);
 //        Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
 //    }
-
-    // More tests coming when BillService() is done
+//
+//    // More tests coming when BillService() is done
 
 }
