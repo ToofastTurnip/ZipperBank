@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import util.BaseServiceTest;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -64,6 +65,8 @@ public class AccountServiceTest extends BaseServiceTest<Account> {
     @Test
     public void testDeleteAccountById() {
         // Betta be able to delete dat account boi
+        accountService.deleteAccountById(entityId);
+        verify(accountRepository).delete(entityId);
     }
 
 }
