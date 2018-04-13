@@ -55,7 +55,7 @@ public class CustomerServiceTest extends BaseServiceTest<Customer> {
     }
 
     @Test
-    public void testUpdateStudentById() {
+    public void testUpdateCustomerById() {
         when(customerRepository.save(entity))
                 .thenReturn(entity);
         returnedEntity = customerService.updateCustomerById(entityId, entity);
@@ -63,7 +63,7 @@ public class CustomerServiceTest extends BaseServiceTest<Customer> {
     }
 
     @Test
-    public void testDeleteBillByBillId() {
+    public void testDeleteCustomerById() {
         customerService.deleteCustomerById(entityId);
         verify(customerRepository).delete(entityId);
     }
