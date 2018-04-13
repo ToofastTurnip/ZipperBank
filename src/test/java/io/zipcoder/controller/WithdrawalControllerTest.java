@@ -1,8 +1,8 @@
 package io.zipcoder.controller;
 
-import io.zipcoder.bank.controller.BillController;
-import io.zipcoder.bank.model.Bill;
-import io.zipcoder.bank.service.BillService;
+import io.zipcoder.bank.controller.WithdrawalController;
+import io.zipcoder.bank.model.Withdrawal;
+import io.zipcoder.bank.service.WithdrawalService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,60 +17,59 @@ import util.BaseControllerTest;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-public class BillControllerTest extends BaseControllerTest<Bill> {
+public class WithdrawalControllerTest extends BaseControllerTest<Withdrawal> {
 
     @MockBean
-    private BillService billService;
+    private WithdrawalService withdrawalService;
 
     @InjectMocks
-    private BillController billController;
+    private WithdrawalController withdrawalController;
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-        mvc = MockMvcBuilders.standaloneSetup(billController).build();
-        baseEndpointUrl = "/api/bills";
-        entity = new Bill();
+        mvc = MockMvcBuilders.standaloneSetup(withdrawalController).build();
+        baseEndpointUrl = "/api/withdrawals";
+        entity = new Withdrawal();
         initDependentVariables();
     }
 
     @Test
-    public void testCreateBill() throws Exception {
-        when(billService.createBill(entity))
+    public void testCreateWithdrawal() throws Exception {
+        when(withdrawalService.createWithdrawal(entity))
                 .thenReturn(entity);
         mvcPerformPostWithNoPathVariables(baseEndpointUrl, entityAsJsonString);
         System.out.println(entityAsJsonString);
     }
 
-    @Test
-    public void testFindAllBills() throws Exception {
-        when(billService.findAllBills())
-                .thenReturn(entityCollection);
-        returnedEntity = mvcPerformGetWithNoPathVariables(baseEndpointUrl);
-        Assert.assertEquals(entityNotReturnedMessage, entityCollectionAsJsonString, returnedEntity);
-        System.out.println(returnedEntity);
-    }
+//    @Test
+//    public void testFindAllAccounts() throws Exception {
+//        when(accountService.findAllAccounts())
+//                .thenReturn(entityCollection);
+//        returnedEntity = mvcPerformGetWithNoPathVariables(baseEndpointUrl);
+//        Assert.assertEquals(entityNotReturnedMessage, entityCollectionAsJsonString, returnedEntity);
+//        System.out.println(returnedEntity);
+//    }
 
     @Test
-    public void testFindBillById() throws Exception {
-        when(billService.findBillByBillId(childEntityId))
+    public void testFindWithdrawalById() throws Exception {
+        when(withdrawalService.findWithdrawalByWithdrawalId(childEntityId))
                 .thenReturn(entity);
         returnedEntity = mvcPerformGetWithOnePathVariable(idEndpointUrl, childEntityId);
         Assert.assertEquals(entityNotReturnedMessage, entityAsJsonString, returnedEntity);
     }
 
     @Test
-    public void testUpdateBillById() throws Exception {
-        when(billService.updateBillByBillId(childEntityId, entity))
+    public void testUpdateWithdrawalById() throws Exception {
+        when(withdrawalService.updateWithdrawalByWithdrawalId(childEntityId, entity))
                 .thenReturn(entity);
         mvcPerformUpdateWithOnePathVariable(idEndpointUrl, childEntityId, entityAsJsonString);
     }
 
     @Test
     public void testDeleteAccountById() throws Exception {
-        when(billService.findBillByBillId(childEntityId))
+        when(withdrawalService.findWithdrawalByWithdrawalId(childEntityId))
                 .thenReturn(entity);
         returnedEntity = mvcPerformDeleteWithOnePathVariable(idEndpointUrl, childEntityId);
     }
-
 }

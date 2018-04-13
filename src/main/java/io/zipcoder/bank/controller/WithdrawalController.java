@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/api/withdrawals")
 public class WithdrawalController {
 
     private WithdrawalService withdrawalService;
@@ -17,7 +18,7 @@ public class WithdrawalController {
         this.withdrawalService = withdrawalService;
     }
 
-    @RequestMapping(value = "/withdrawals/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Withdrawal> findAccountById(@PathVariable("id") Integer id) {
         Withdrawal withdrawal = withdrawalService.findWithdrawalByWithdrawalId(id);
         return new ResponseEntity<>(withdrawal, HttpStatus.OK);
@@ -29,13 +30,13 @@ public class WithdrawalController {
         return new ResponseEntity<>(savedWithdrawal, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/withdrawals/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Withdrawal> updateAccountById(@RequestBody Withdrawal withdrawal, @PathVariable("id") Integer id) {
         Withdrawal returnWithdrawal = withdrawalService.updateWithdrawalByWithdrawalId(id, withdrawal);
         return new ResponseEntity<>(returnWithdrawal, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/withdrawals/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteAccountByDepositId(@PathVariable("id") Integer id) {
         withdrawalService.deleteWithdrawalByWithdrawalId(id);
         return new ResponseEntity<>(HttpStatus.OK);

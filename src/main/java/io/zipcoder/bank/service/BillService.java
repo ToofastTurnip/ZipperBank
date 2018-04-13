@@ -6,10 +6,12 @@ import io.zipcoder.bank.repository.AccountRepository;
 import io.zipcoder.bank.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Service
 public class BillService {
 
     private BillRepository billRepository;
@@ -35,6 +37,7 @@ public class BillService {
     }
 
     public Collection<Bill> findAllBills() {
+
         return (Collection<Bill>) billRepository.findAll();
     }
 

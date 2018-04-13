@@ -48,8 +48,8 @@ public class Bill {
         Id = id;
     }
 
-    public String getStatus() {
-        return status.getValue();
+    public Status getStatus() {
+        return status;
     }
 
     public void setStatus(Status status) {

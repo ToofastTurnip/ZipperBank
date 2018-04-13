@@ -19,7 +19,7 @@ public class BillTest {
     public void billStatusTest() {
         Bill bill = new Bill();
         bill.setStatus(Status.PENDING);
-        String expected = Status.PENDING.getValue();
+        Status expected = Status.PENDING;
         Assert.assertEquals(expected, bill.getStatus());
     }
 
