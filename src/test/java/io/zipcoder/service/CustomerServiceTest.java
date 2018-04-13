@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import util.BaseServiceTest;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,6 +60,12 @@ public class CustomerServiceTest extends BaseServiceTest<Customer> {
                 .thenReturn(entity);
         returnedEntity = customerService.updateCustomerById(entityId, entity);
         Assert.assertEquals(entityNotReturnedMessage, entity, returnedEntity);
+    }
+
+    @Test
+    public void testDeleteBillByBillId() {
+        customerService.deleteCustomerById(entityId);
+        verify(customerRepository).delete(entityId);
     }
 
 }
