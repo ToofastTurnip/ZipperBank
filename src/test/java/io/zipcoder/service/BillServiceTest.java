@@ -68,4 +68,5 @@ public class BillServiceTest extends BaseServiceTest<Bill> {
         // How do we test this lmao
     }
 
+
 }

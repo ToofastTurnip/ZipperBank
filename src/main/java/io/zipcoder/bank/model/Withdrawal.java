@@ -26,7 +26,7 @@ public class Withdrawal {
     private Status status;
 
     @Column(name = "PAYER_ID")
-    private Long payer_id;
+    private Integer payer_id;
 
     @Column(name = "MEDIUM")
     private Medium medium;
@@ -69,11 +69,11 @@ public class Withdrawal {
         this.status = status;
     }
 
-    public Long getPayer_id() {
+    public Integer getPayer_id() {
         return payer_id;
     }
 
-    public void setPayer_id(Long payer_id) {
+    public void setPayer_id(Integer payer_id) {
         this.payer_id = payer_id;
     }
 
