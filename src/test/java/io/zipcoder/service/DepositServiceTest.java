@@ -31,7 +31,7 @@ public class DepositServiceTest extends BaseServiceTest<Deposit> {
     }
 
     @Test
-    public void testCreateCustomer() {
+    public void testCreateDeposit() {
         when(depositRepository.save(entity))
                 .thenReturn(entity);
         returnedEntity = depositService.createDeposit(entity);
@@ -39,7 +39,7 @@ public class DepositServiceTest extends BaseServiceTest<Deposit> {
     }
 
     @Test
-    public void testFindCustomerById() {
+    public void testFindDepositById() {
         when(depositRepository.findOne(entityId))
                 .thenReturn(entity);
         returnedEntity = depositService.findDepositByDepositId(entityId);
@@ -47,7 +47,7 @@ public class DepositServiceTest extends BaseServiceTest<Deposit> {
     }
 
     @Test
-    public void testUpdateCustomerById() {
+    public void testUpdateDepositById() {
         when(depositRepository.save(entity))
                 .thenReturn(entity);
         returnedEntity = depositService.updateDepositByDepositId(entityId, entity);
@@ -55,7 +55,7 @@ public class DepositServiceTest extends BaseServiceTest<Deposit> {
     }
 
     @Test
-    public void testDeleteCustomerById() {
+    public void testDeleteDepositById() {
         depositService.deleteDepositByDepositId(entityId);
         verify(depositRepository).delete(entityId);
     }

@@ -29,7 +29,7 @@ public class DepositControllerTest extends BaseControllerTest<Deposit> {
     public void init() {
         MockitoAnnotations.initMocks(this);
         mvc = MockMvcBuilders.standaloneSetup(depositController).build();
-        baseEndpointUrl = "/api/deposits";
+        baseEndpointUrl = "/deposits";
         entity = new Deposit();
         initDependentVariables();
     }
