@@ -21,16 +21,9 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-
     public Collection<Account> findAllAccounts() {
         return (Collection<Account>) accountRepository.findAll();
     }
-
-//    public Collection<Account> findAllStudents() {
-//
-//        return accountRepository.findAll();
-//
-//    }
 
     public Account findAccountById(Integer id) {
         return accountRepository.findOne(id);

@@ -44,7 +44,7 @@ public class AccountTest {
     public void accountTypeTest() {
         Account account = new Account();
         account.setType(Type.CHECKING);
-        String expected = Type.CHECKING.getValue();
+        Type expected = Type.CHECKING;
         Assert.assertEquals(expected, account.getType());
     }
 
