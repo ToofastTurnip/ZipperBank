@@ -45,8 +45,8 @@ public class BillService {
         billRepository.delete(id);
     }
 
-    public Collection<Bill> findAllBillsByAccount(Integer id) {
-        return billRepository.findByAccount_id(id);
-    }
+//    public Collection<Bill> findAllBillsByAccount(Integer id) {
+//        return billRepository.findByAccount_id(id);
+//    }
 
 }

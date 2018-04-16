@@ -9,6 +9,6 @@ import java.util.Collection;
 @Repository
 public interface BillRepository extends BaseRepository<Bill, Integer> {
 
-    Collection<Bill> findByAccount_id(int accountId);
+//    Collection<Bill> findByAccount_id(int accountId);
 
 }

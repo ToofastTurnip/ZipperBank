@@ -66,13 +66,13 @@ public class BillServiceTest extends BaseServiceTest<Bill> {
                 .delete(eq(entityId));
     }
 
-    @Test
-    public void testFindBillsByAccount() {
-        when(billRepository.findByAccount_id(entityId))
-                .thenReturn(entityCollection);
-        returnedEntityCollection = billService.findAllBillsByAccount(entityId);
-        Assert.assertEquals(entityNotReturnedMessage, entityCollection, returnedEntityCollection);
-    }
+//    @Test
+//    public void testFindBillsByAccount() {
+//        when(billRepository.findByAccount_id(entityId))
+//                .thenReturn(entityCollection);
+//        returnedEntityCollection = billService.findAllBillsByAccount(entityId);
+//        Assert.assertEquals(entityNotReturnedMessage, entityCollection, returnedEntityCollection);
+//    }
 
 
 }
